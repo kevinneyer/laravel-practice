@@ -20,5 +20,6 @@
     </script>
         <script type="text/javascript"
             src="{{ mix('/js/app.js') }}"></script>
-        <!-- <link rel="stylesheet" href="/resources/scss/welcome.scss"> -->
+            
+    <link href="/css/app.css" rel="stylesheet">
 </html>

@@ -2,16 +2,25 @@
     <div>
         <div class='welcome'>
             <h1 class='welcome__header'>Welcome</h1>
-            <input v-model="title" placeholder="Search Movies..." />
-            <button v-on:click='getMovies(title)'>Search</button>
-            <button v-on:click='clearSearch()'>Clear Search</button>
+            <div class='welcome__search'>
+                <input v-model="title" placeholder="Search Movies..." />
+                <button v-on:click='getMovies(title)'>Search</button>
+                <button v-on:click='clearSearch()'>Clear Search</button>
+            </div>
         </div> 
-        <div v-if="movies">
-            <div>
-                <div v-for="movie in movies" :key="movie.title">
-                    <a :href="`/${ movie.imdbID }`">{{ movie.Title }}</a>
+        <div class='cards'  v-if="movies.length > 0">
+            <div v-for="movie in movies" :key="movie.title">
+                <div class='cards__item'> 
+                    <a  :href="`/${ movie.imdbID }`">
+                        <img class='cards__item__image' :src="movie.Poster" />
+                    </a>
+                    <h3 class='cards__item__title'>{{ movie.Title }}</h3>
+                    <h3>{{ movie.Year }}</h3>
                 </div>
             </div>
+        </div>
+        <div class='else'v-else>
+            <h1>Search a Movie!</h1>
         </div>
     </div>
 </template>
@@ -31,6 +40,7 @@ export default {
             .then(data => {
                 this.movies = data.Search
             })
+            console.log(this.movies)
         },
         clearSearch: function() {
             this.movies = []
