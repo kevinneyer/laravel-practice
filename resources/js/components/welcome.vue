@@ -40,7 +40,6 @@ export default {
             .then(data => {
                 this.movies = data.Search
             })
-            console.log(this.movies)
         },
         clearSearch: function() {
             this.movies = []
