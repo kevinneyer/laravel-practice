@@ -12,6 +12,7 @@
             <div class='column'>
                 <movies  
                 @add-favorite='addFavorite' 
+                :favorites='favorites'
                 :movies='movies' />
             </div>
             <div class='column'>

@@ -4,14 +4,19 @@
             <h1>Movies</h1>
         </div>
         <div class='cards'  v-if="movies.length > 0">
-            <div v-for="movie in movies" :key="movie.title">
+            <div v-for="movie in movies" :key="movie.imdbID">
                 <div class='cards__item'> 
                     <a  :href="`/${ movie.imdbID }`">
                         <img class='cards__item__image' :src="movie.Poster" />
                     </a>
                     <h3 class='cards__item__title'>{{ movie.Title }}</h3>
                     <h3>{{ movie.Year }}</h3>
-                    <button @click='addFavorite(movie.imdbID)'>Add to Favorites</button>
+                    <div v-if='favorites.includes(movie)'>
+                        <button disabled>Add to Favorites</button>
+                    </div>
+                    <div v-else>
+                        <button @click='addFavorite(movie.imdbID)'>Add to Favorites</button>
+                    </div>
                 </div>
             </div>
         </div>
@@ -24,7 +29,7 @@
 <script>
 export default{
     name: 'movies',
-    props: ['movies'],
+    props: ['movies', 'favorites'],
     methods: {
         addFavorite(id){
             this.$emit('add-favorite', id)
