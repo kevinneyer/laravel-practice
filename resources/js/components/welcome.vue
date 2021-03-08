@@ -8,8 +8,18 @@
                 <button v-on:click='clearSearch()'>Clear Search</button>
             </div>
         </div> 
-        <movies  @add-favorite='addFavorite' :movies='movies' />
-        <favorites :favorites="favorites" />
+        <div class='row'>
+            <div class='column'>
+                <movies  
+                @add-favorite='addFavorite' 
+                :movies='movies' />
+            </div>
+            <div class='column'>
+                <favorites  
+                :favorites="favorites" 
+                @remove-favorite='removeFavorite'/>
+            </div>
+        </div>
     </div>
 </template>
 
@@ -44,6 +54,9 @@ export default {
         addFavorite(id){
             let movie = this.movies.find(movie => movie.imdbID === id)
             this.favorites = [...this.favorites, movie]
+        },
+        removeFavorite(id){
+            this.favorites = this.favorites.filter(favorite => favorite.imdbID !== id)
         }
     }
 }

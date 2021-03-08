@@ -24,4 +24,21 @@
   text-align: center;
   margin-top: 2em; }
 
+.favorites {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  padding-top: 2em; }
+
+.row {
+  display: flex; }
+
+.column {
+  flex: 40%;
+  margin-left: 1em; }
+
+.content-header {
+  text-align: center;
+  margin-top: 1em; }
+
 /*# sourceMappingURL=app.css.map */

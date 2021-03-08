@@ -1,5 +1,8 @@
 <template>
     <div>
+        <div class='content-header'>
+            <h1>Movies</h1>
+        </div>
         <div class='cards'  v-if="movies.length > 0">
             <div v-for="movie in movies" :key="movie.title">
                 <div class='cards__item'> 
@@ -13,7 +16,7 @@
             </div>
         </div>
         <div class='else'v-else>
-            <h1>Search a Movie!</h1>
+            <h3>Search a Movie!</h3>
         </div>
     </div>
 </template>
