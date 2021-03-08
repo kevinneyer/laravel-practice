@@ -14,10 +14,10 @@ use App\Http\Controllers\ShowController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'App\Http\Controllers\HomeController@index');
 
 Route::get('/{id}', 'App\Http\Controllers\ShowController@show');
+
+Route::get('/my/favorites', 'App\Http\Controllers\FavoriteController@index');
 
 Route::resource('users', UserController::class);

@@ -2,7 +2,7 @@
     <div v-if='Object.keys(movie).length > 0'>
         <div>
             <h1>{{ movie.Title }} ({{ movie.Year}})</h1>
-            <img :src="`${movie.Poster}`" />
+            <img :src="movie.Poster" />
             <p>{{ movie.Plot }}</p>
             <a href='/'>
                 <button >Home</button>
