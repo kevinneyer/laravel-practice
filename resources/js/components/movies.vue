@@ -6,7 +6,7 @@
         <div class='cards'  v-if="movies.length > 0">
             <div v-for="movie in movies" :key="movie.imdbID">
                 <div class='cards__item'> 
-                    <a  :href="`/${ movie.imdbID }`">
+                    <a  :href="`/movies/${ movie.imdbID }`">
                         <img class='cards__item__image' :src="movie.Poster" />
                     </a>
                     <h3 class='cards__item__title'>{{ movie.Title }}</h3>
