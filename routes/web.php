@@ -14,18 +14,15 @@ use App\Http\Controllers\ShowController;
 |
 */
 
-Route::get('/', 'App\Http\Controllers\LoginController@home');
+Route::get('/', 'App\Http\Controllers\HomeController@welcome');
 
 Route::get('/movies', 'App\Http\Controllers\HomeController@index');
 
 Route::get('/movies/{id}', 'App\Http\Controllers\ShowController@show');
 
-Route::get('/my/favorites', 'App\Http\Controllers\FavoriteController@index');
+Route::get('/home', 'App\Http\Controllers\HomeController@home');
 
 Route::get('/test/testing', 'App\Http\Controllers\UserController@index');
 
-// Route::resource('users', UserController::class);
-
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

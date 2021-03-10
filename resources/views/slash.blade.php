@@ -1,5 +1,6 @@
 @extends('template')
+@extends('layouts.app')
 
 @section('content')
-    <login></login>
+  <slash></slash>
 @endsection
