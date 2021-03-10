@@ -25,3 +25,7 @@ Route::get('/my/favorites', 'App\Http\Controllers\FavoriteController@index');
 Route::get('/test/testing', 'App\Http\Controllers\UserController@index');
 
 // Route::resource('users', UserController::class);
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
