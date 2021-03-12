@@ -1,6 +1,6 @@
 <template>
     <div>
-        <welcome></welcome>
+        <welcome :user='user'></welcome>
     </div>
 </template>
 
@@ -10,6 +10,7 @@ import welcome from './welcome'
 export default{
     components: {
         welcome
-    }
+    },
+    props: ['user']
 }
 </script>

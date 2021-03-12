@@ -29,7 +29,7 @@
 <script>
 export default{
     name: 'movies',
-    props: ['movies', 'favorites'],
+    props: ['movies', 'favorites','user'],
     methods: {
         addFavorite(id){
             this.$emit('add-favorite', id)

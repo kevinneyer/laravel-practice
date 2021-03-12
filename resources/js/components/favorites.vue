@@ -24,7 +24,7 @@
 <script>
 export default{
     name: 'favorites',
-    props: ['favorites'],
+    props: ['favorites', 'user'],
     methods: {
         removeFavorite(id){
             this.$emit('remove-favorite', id)

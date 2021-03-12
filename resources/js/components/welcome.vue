@@ -13,12 +13,16 @@
                 <movies  
                 @add-favorite='addFavorite' 
                 :favorites='favorites'
-                :movies='movies' />
+                :movies='movies' 
+                :user='user'
+                />
             </div>
             <div class='column'>
                 <favorites  
                 :favorites="favorites" 
-                @remove-favorite='removeFavorite'/>
+                @remove-favorite='removeFavorite'
+                :user='user'
+                />
             </div>
         </div>
     </div>
@@ -36,6 +40,7 @@ export default {
             favorites: []
         }
     },
+    props: ['user'],
     components: {
         favorites,
         movies
