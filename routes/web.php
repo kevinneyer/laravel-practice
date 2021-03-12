@@ -3,6 +3,8 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\ShowController;
+
+use App\Models\User;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -22,7 +24,9 @@ Route::get('/movies/{id}', 'App\Http\Controllers\ShowController@show');
 
 Route::get('/home', 'App\Http\Controllers\HomeController@home');
 
-Route::get('/test/testing', 'App\Http\Controllers\UserController@index');
+Route::get('/profile/{id}', 'App\Http\Controllers\UserController@show');
+
+// Route::get('/test/testing', 'App\Http\Controllers\UserController@index');
 
 Auth::routes();
 
