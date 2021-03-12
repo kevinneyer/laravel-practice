@@ -9,8 +9,8 @@
                     <a  :href="`/${ favorite.imdbID }`">
                         <img class='cards__item__image' :src="favorite.Poster" />
                     </a>
-                    <h3 class='cards__item__title'>{{ favorite.Title }}</h3>
-                    <h3>{{ favorite.Year }}</h3>
+                    <h5>{{ favorite.Title }}</h5>
+                    <h3 class='cards__item__title'>{{ favorite.Year }}</h3>
                     <button @click='removeFavorite(favorite.imdbID)'>Remove from Favorites</button>
                 </div>
             </div>

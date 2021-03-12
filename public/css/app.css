@@ -66,13 +66,12 @@ section {
 }
 
 
-
-.welcome__header{
-    text-align: center;
-}
-.welcome__search{
-    text-align: center;
-}
+    .welcome__header{
+        text-align: center;
+    }
+    .welcome__search{
+        text-align: center;
+    }
 
 
 
@@ -84,20 +83,21 @@ section {
 }
     
 
-.cards__item{
-    height: 20em;
-    width: 15em;
-    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
-    margin-bottom: 1em;
-    background-color: rgba(0,0,0,0.2);
-}
+    .cards__item{
+        height: 20em;
+        width: 15em;
+        box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+        margin-bottom: 1em;
+        background-color: rgba(0,0,0,0.2);
+    }
 
-.cards__item__image{
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    width: 50%;
-}
+        .cards__item__image{
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            width: 50%;
+        }
+  
 
 .else{
     text-align: center;
@@ -125,6 +125,7 @@ section {
     text-align: center;
     margin-top: 1em;
 }
+
 
 
 

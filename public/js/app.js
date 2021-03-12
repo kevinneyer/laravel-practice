@@ -37968,11 +37968,11 @@ var render = function() {
                   })
                 ]),
                 _vm._v(" "),
-                _c("h3", { staticClass: "cards__item__title" }, [
-                  _vm._v(_vm._s(favorite.Title))
-                ]),
+                _c("h5", [_vm._v(_vm._s(favorite.Title))]),
                 _vm._v(" "),
-                _c("h3", [_vm._v(_vm._s(favorite.Year))]),
+                _c("h3", { staticClass: "cards__item__title" }, [
+                  _vm._v(_vm._s(favorite.Year))
+                ]),
                 _vm._v(" "),
                 _c(
                   "button",
@@ -38044,11 +38044,11 @@ var render = function() {
                   })
                 ]),
                 _vm._v(" "),
-                _c("h3", { staticClass: "cards__item__title" }, [
-                  _vm._v(_vm._s(movie.Title))
-                ]),
+                _c("h5", [_vm._v(_vm._s(movie.Title))]),
                 _vm._v(" "),
-                _c("h3", [_vm._v(_vm._s(movie.Year))]),
+                _c("h4", { staticClass: "cards__item__title" }, [
+                  _vm._v(_vm._s(movie.Year))
+                ]),
                 _vm._v(" "),
                 _vm.favorites.includes(movie)
                   ? _c("div", [

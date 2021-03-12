@@ -9,8 +9,8 @@
                     <a  :href="`/movies/${ movie.imdbID }`">
                         <img class='cards__item__image' :src="movie.Poster" />
                     </a>
-                    <h3 class='cards__item__title'>{{ movie.Title }}</h3>
-                    <h3>{{ movie.Year }}</h3>
+                    <h5>{{ movie.Title }}</h5>
+                    <h4 class='cards__item__title'>{{ movie.Year }}</h4>
                     <div v-if='favorites.includes(movie)'>
                         <button disabled>Add to Favorites</button>
                     </div>
