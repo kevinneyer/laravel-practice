@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\ShowController;
 
-use App\Models\User;
+use App\Http\Controllers\FavoriteController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -19,12 +19,13 @@ use App\Models\User;
 Route::get('/', 'App\Http\Controllers\HomeController@welcome');
 
 Route::get('/movies', 'App\Http\Controllers\HomeController@index');
-
 Route::get('/movies/{id}', 'App\Http\Controllers\ShowController@show');
 
-Route::get('/home', 'App\Http\Controllers\HomeController@home');
+// Route::get('/home', 'App\Http\Controllers\HomeController@home');
 
 Route::get('/profile/{id}', 'App\Http\Controllers\UserController@show');
+
+Route::resource('favorites', FavoriteController::class);
 
 // Route::get('/test/testing', 'App\Http\Controllers\UserController@index');
 

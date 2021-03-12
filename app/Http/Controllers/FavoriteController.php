@@ -11,4 +11,15 @@ class FavoriteController extends Controller
     {
         return view('favorites');
     }
+
+    public function store(Request $request)
+    {
+        $Title = $request->Title;
+        $Year = $request->Year;
+        $imdbID = $request->imdbID;
+        $Type = $request->Type;
+        $Poster = $request->Poster;
+        $user_id = $request->user_id;
+
+    }
 }
