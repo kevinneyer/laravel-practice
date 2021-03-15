@@ -14,7 +14,7 @@
                 @add-favorite='addFavorite' 
                 @sort-handler='sortHandler'
                 :favorites='favorites'
-                :movies='testing' 
+                :movies='movies' 
                 :user='user'
                 />
             </div>
@@ -39,7 +39,7 @@ export default {
             title: '',
             movies: [],
             favorites: [],
-            testing: []
+            original: []
         }
     },
     props: ['user'],
@@ -53,12 +53,12 @@ export default {
             .then(res => res.json())
             .then(data => {
                 this.movies = data.Search
-                this.testing = data.Search
+                this.original = data.Search
             })
         },
         clearSearch: function() {
             this.movies = []
-            this.testing= []
+            this.original= []
             this.title = ""
         },
         addFavorite(id){
@@ -69,14 +69,14 @@ export default {
             this.favorites = this.favorites.filter(favorite => favorite.imdbID !== id)
         },
         sortHandler(value){
-            let spread = [...this.testing]
+            let spread = [...this.movies]
 
             if(value === 'Date Ascending'){
-                this.testing = spread.sort((a,b) => (a.Year < b.Year ? -1 : 1));
+                this.movies = spread.sort((a,b) => (a.Year < b.Year ? -1 : 1));
             } else if(value === 'Date Descending'){
-                this.testing = spread.sort((a,b) => (a.Year > b.Year ? -1 : 1));
+                this.movies = spread.sort((a,b) => (a.Year > b.Year ? -1 : 1));
             } else if(value === 'None'){
-                this.testing = this.movies
+                this.movies = this.original
             }
         }
     }
