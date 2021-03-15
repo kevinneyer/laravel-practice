@@ -21,13 +21,13 @@ Route::get('/', 'App\Http\Controllers\HomeController@welcome');
 Route::get('/movies', 'App\Http\Controllers\HomeController@index');
 Route::get('/movies/{id}', 'App\Http\Controllers\ShowController@show');
 
-// Route::get('/home', 'App\Http\Controllers\HomeController@home');
+Route::get('/home', 'App\Http\Controllers\HomeController@home');
 
 Route::get('/profile/{id}', 'App\Http\Controllers\UserController@show');
 
 Route::resource('favorites', FavoriteController::class);
 
 // Route::get('/test/testing', 'App\Http\Controllers\UserController@index');
+Route::get('/logout', 'App\Http\Controllers\Auth\LogoutController@logout');
 
 Auth::routes();
-
