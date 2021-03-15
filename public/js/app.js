@@ -1870,7 +1870,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: 'favorites',
-  props: ['favorites'],
+  props: ['favorites', 'user'],
   methods: {
     removeFavorite: function removeFavorite(id) {
       this.$emit('remove-favorite', id);
@@ -1919,14 +1919,65 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: 'movies',
-  props: ['movies', 'favorites'],
+  data: function data() {
+    return {
+      sortValue: 'None'
+    };
+  },
+  props: ['movies', 'favorites', 'user'],
   methods: {
     addFavorite: function addFavorite(id) {
       this.$emit('add-favorite', id);
+    },
+    sortHandler: function sortHandler(value) {
+      this.$emit('sort-handler', value);
     }
   }
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/profile.vue?vue&type=script&lang=js&":
+/*!**************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/profile.vue?vue&type=script&lang=js& ***!
+  \**************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  name: 'profile',
+  props: ['user', 'favorites']
 });
 
 /***/ }),
@@ -2005,7 +2056,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   components: {
     welcome: _welcome__WEBPACK_IMPORTED_MODULE_0__.default
-  }
+  },
+  props: ['user']
 });
 
 /***/ }),
@@ -2061,6 +2113,11 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
 //
 //
 //
+//
+//
+//
+//
+//
 
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
@@ -2068,9 +2125,11 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
     return {
       title: '',
       movies: [],
-      favorites: []
+      favorites: [],
+      testing: []
     };
   },
+  props: ['user'],
   components: {
     favorites: _favorites__WEBPACK_IMPORTED_MODULE_0__.default,
     movies: _movies__WEBPACK_IMPORTED_MODULE_1__.default
@@ -2099,6 +2158,21 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
       this.favorites = this.favorites.filter(function (favorite) {
         return favorite.imdbID !== id;
       });
+    },
+    sortHandler: function sortHandler(value) {
+      var spread = _toConsumableArray(this.movies);
+
+      if (value === 'Date Ascending') {
+        this.testing = spread.sort(function (a, b) {
+          return a.Year < b.Year ? -1 : 1;
+        });
+      } else if (value === 'Date Descending') {
+        this.testing = spread.sort(function (a, b) {
+          return a.Year > b.Year ? -1 : 1;
+        });
+      } else if (value === 'None') {
+        this.testing = this.movies;
+      }
     }
   }
 });
@@ -37653,6 +37727,45 @@ component.options.__file = "resources/js/components/movies.vue"
 
 /***/ }),
 
+/***/ "./resources/js/components/profile.vue":
+/*!*********************************************!*\
+  !*** ./resources/js/components/profile.vue ***!
+  \*********************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _profile_vue_vue_type_template_id_7eab0eae___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./profile.vue?vue&type=template&id=7eab0eae& */ "./resources/js/components/profile.vue?vue&type=template&id=7eab0eae&");
+/* harmony import */ var _profile_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./profile.vue?vue&type=script&lang=js& */ "./resources/js/components/profile.vue?vue&type=script&lang=js&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! !../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+;
+var component = (0,_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__.default)(
+  _profile_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__.default,
+  _profile_vue_vue_type_template_id_7eab0eae___WEBPACK_IMPORTED_MODULE_0__.render,
+  _profile_vue_vue_type_template_id_7eab0eae___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns,
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/profile.vue"
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (component.exports);
+
+/***/ }),
+
 /***/ "./resources/js/components/showpage.vue":
 /*!**********************************************!*\
   !*** ./resources/js/components/showpage.vue ***!
@@ -37802,6 +37915,22 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/js/components/profile.vue?vue&type=script&lang=js&":
+/*!**********************************************************************!*\
+  !*** ./resources/js/components/profile.vue?vue&type=script&lang=js& ***!
+  \**********************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_profile_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./profile.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5[0].rules[0].use[0]!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/profile.vue?vue&type=script&lang=js&");
+ /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_babel_loader_lib_index_js_clonedRuleSet_5_0_rules_0_use_0_node_modules_vue_loader_lib_index_js_vue_loader_options_profile_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__.default); 
+
+/***/ }),
+
 /***/ "./resources/js/components/showpage.vue?vue&type=script&lang=js&":
 /*!***********************************************************************!*\
   !*** ./resources/js/components/showpage.vue?vue&type=script&lang=js& ***!
@@ -37880,6 +38009,23 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_movies_vue_vue_type_template_id_d0a3c064___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
 /* harmony export */ });
 /* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_movies_vue_vue_type_template_id_d0a3c064___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./movies.vue?vue&type=template&id=d0a3c064& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/movies.vue?vue&type=template&id=d0a3c064&");
+
+
+/***/ }),
+
+/***/ "./resources/js/components/profile.vue?vue&type=template&id=7eab0eae&":
+/*!****************************************************************************!*\
+  !*** ./resources/js/components/profile.vue?vue&type=template&id=7eab0eae& ***!
+  \****************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_profile_vue_vue_type_template_id_7eab0eae___WEBPACK_IMPORTED_MODULE_0__.render),
+/* harmony export */   "staticRenderFns": () => (/* reexport safe */ _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_profile_vue_vue_type_template_id_7eab0eae___WEBPACK_IMPORTED_MODULE_0__.staticRenderFns)
+/* harmony export */ });
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_profile_vue_vue_type_template_id_7eab0eae___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib/index.js??vue-loader-options!./profile.vue?vue&type=template&id=7eab0eae& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/profile.vue?vue&type=template&id=7eab0eae&");
 
 
 /***/ }),
@@ -38028,7 +38174,97 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", [
-    _vm._m(0),
+    _c("div", { staticClass: "content-header" }, [
+      _c("h1", [_vm._v("Movies")]),
+      _vm._v("\n        " + _vm._s(_vm.sortValue) + "\n    ")
+    ]),
+    _vm._v(" "),
+    _c(
+      "div",
+      {
+        directives: [
+          {
+            name: "show",
+            rawName: "v-show",
+            value: _vm.movies.length > 0,
+            expression: "movies.length > 0"
+          }
+        ]
+      },
+      [
+        _c("input", {
+          directives: [
+            {
+              name: "model",
+              rawName: "v-model",
+              value: _vm.sortValue,
+              expression: "sortValue"
+            }
+          ],
+          attrs: { type: "radio", value: "None" },
+          domProps: { checked: _vm._q(_vm.sortValue, "None") },
+          on: {
+            change: [
+              function($event) {
+                _vm.sortValue = "None"
+              },
+              function($event) {
+                return _vm.sortHandler(_vm.sortValue)
+              }
+            ]
+          }
+        }),
+        _vm._v("None"),
+        _vm._v(" "),
+        _c("input", {
+          directives: [
+            {
+              name: "model",
+              rawName: "v-model",
+              value: _vm.sortValue,
+              expression: "sortValue"
+            }
+          ],
+          attrs: { type: "radio", value: "Date Ascending" },
+          domProps: { checked: _vm._q(_vm.sortValue, "Date Ascending") },
+          on: {
+            change: [
+              function($event) {
+                _vm.sortValue = "Date Ascending"
+              },
+              function($event) {
+                return _vm.sortHandler(_vm.sortValue)
+              }
+            ]
+          }
+        }),
+        _vm._v("Date Ascending"),
+        _vm._v(" "),
+        _c("input", {
+          directives: [
+            {
+              name: "model",
+              rawName: "v-model",
+              value: _vm.sortValue,
+              expression: "sortValue"
+            }
+          ],
+          attrs: { type: "radio", value: "Date Descending" },
+          domProps: { checked: _vm._q(_vm.sortValue, "Date Descending") },
+          on: {
+            change: [
+              function($event) {
+                _vm.sortValue = "Date Descending"
+              },
+              function($event) {
+                return _vm.sortHandler(_vm.sortValue)
+              }
+            ]
+          }
+        }),
+        _vm._v("Date Descending")
+      ]
+    ),
     _vm._v(" "),
     _vm.movies.length > 0
       ? _c(
@@ -38079,16 +38315,72 @@ var render = function() {
         ])
   ])
 }
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "content-header" }, [
-      _c("h1", [_vm._v("Movies")])
-    ])
-  }
-]
+var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/profile.vue?vue&type=template&id=7eab0eae&":
+/*!*******************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib/index.js??vue-loader-options!./resources/js/components/profile.vue?vue&type=template&id=7eab0eae& ***!
+  \*******************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* binding */ render),
+/* harmony export */   "staticRenderFns": () => (/* binding */ staticRenderFns)
+/* harmony export */ });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", [
+    _vm._v("\n    " + _vm._s(_vm.user.name) + "'s Profile\n    "),
+    _c(
+      "div",
+      [
+        _c("h3", [_vm._v("Favorites")]),
+        _vm._v(" "),
+        _vm._l(_vm.favorites, function(favorite) {
+          return _c("div", { key: favorite.imdbID }, [
+            _c("div", { staticClass: "cards__item" }, [
+              _c("a", { attrs: { href: "/" + favorite.imdbID } }, [
+                _c("img", {
+                  staticClass: "cards__item__image",
+                  attrs: { src: favorite.Poster }
+                })
+              ]),
+              _vm._v(" "),
+              _c("h5", [_vm._v(_vm._s(favorite.Title))]),
+              _vm._v(" "),
+              _c("h3", { staticClass: "cards__item__title" }, [
+                _vm._v(_vm._s(favorite.Year))
+              ]),
+              _vm._v(" "),
+              _c(
+                "button",
+                {
+                  on: {
+                    click: function($event) {
+                      return _vm.removeFavorite(favorite.imdbID)
+                    }
+                  }
+                },
+                [_vm._v("Remove from Favorites")]
+              )
+            ])
+          ])
+        })
+      ],
+      2
+    )
+  ])
+}
+var staticRenderFns = []
 render._withStripped = true
 
 
@@ -38159,7 +38451,7 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", [_c("welcome")], 1)
+  return _c("div", [_c("welcome", { attrs: { user: _vm.user } })], 1)
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -38244,8 +38536,15 @@ var render = function() {
         { staticClass: "column" },
         [
           _c("movies", {
-            attrs: { favorites: _vm.favorites, movies: _vm.movies },
-            on: { "add-favorite": _vm.addFavorite }
+            attrs: {
+              favorites: _vm.favorites,
+              movies: _vm.testing,
+              user: _vm.user
+            },
+            on: {
+              "add-favorite": _vm.addFavorite,
+              "sort-handler": _vm.sortHandler
+            }
           })
         ],
         1
@@ -38256,7 +38555,7 @@ var render = function() {
         { staticClass: "column" },
         [
           _c("favorites", {
-            attrs: { favorites: _vm.favorites },
+            attrs: { favorites: _vm.favorites, user: _vm.user },
             on: { "remove-favorite": _vm.removeFavorite }
           })
         ],
@@ -50389,6 +50688,7 @@ Vue.compile = compileToFunctions;
 var map = {
 	"./components/favorites.vue": "./resources/js/components/favorites.vue",
 	"./components/movies.vue": "./resources/js/components/movies.vue",
+	"./components/profile.vue": "./resources/js/components/profile.vue",
 	"./components/showpage.vue": "./resources/js/components/showpage.vue",
 	"./components/slash.vue": "./resources/js/components/slash.vue",
 	"./components/welcome.vue": "./resources/js/components/welcome.vue"

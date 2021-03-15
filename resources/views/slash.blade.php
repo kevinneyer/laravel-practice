@@ -2,5 +2,5 @@
 @extends('layouts.app')
 
 @section('content')
-  <slash :user="{{ $user }}"></slash>
+  <slash :user="{{ $user ?? '' }}"></slash>
 @endsection
