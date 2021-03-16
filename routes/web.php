@@ -28,6 +28,6 @@ Route::get('/profile/{id}', 'App\Http\Controllers\UserController@show');
 Route::resource('favorites', FavoriteController::class);
 
 // Route::get('/test/testing', 'App\Http\Controllers\UserController@index');
-Route::get('/logout', 'App\Http\Controllers\Auth\LogoutController@logout');
+// Route::get('/logout', 'App\Http\Controllers\Auth\LogoutController@logout');
 
 Auth::routes();
